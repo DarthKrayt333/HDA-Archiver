@@ -1,40 +1,28 @@
-﻿namespace HDAArchiver
+namespace HDAArchiver
 {
-    /// <summary>
-    /// Represents one file entry shown
-    /// in the ListView inside the archiver.
-    /// </summary>
     public class HdaEntry
     {
-        // Slot index inside the HDA table
         public int SlotIndex { get; set; }
-
-        // Detected filename
-        // e.g. BOY_00000.rdtb
         public string FileName { get; set; }
-
-        // Detected extension
-        // e.g. .rdtb
         public string Extension { get; set; }
-
-        // Uncompressed size in bytes
         public long DecompressedSize { get; set; }
-
-        // Stored size in bytes
-        // (compressed or same as decompressed)
         public long StoredSize { get; set; }
-
-        // True if this slot is compressed
         public bool IsCompressed { get; set; }
-
-        // True if this slot is empty gap
         public bool IsEmpty { get; set; }
 
-        // Raw decompressed bytes
-        // (loaded on demand / after extraction)
+        // ── True if this entry is a slot
+        //    layout manifest .bin file.
+        //    Written automatically by
+        //    HarvestDataArchive.Unpack()
+        //    when the HDA has gap slots.
+        //    Detected by "SLOTS=" content.
+        //    Never compressed. Never renamed.
+        //    Must stay as last entry so
+        //    Pack() finds it correctly.
+        public bool IsManifest { get; set; }
+
         public byte[] Data { get; set; }
 
-        // Compression ratio string for display
         public string RatioDisplay
         {
             get
@@ -51,7 +39,6 @@
             }
         }
 
-        // Human-readable size
         public string SizeDisplay =>
             IsEmpty
                 ? "—"

@@ -8,7 +8,7 @@ Created by **DarthKrayt333** as a companion tool to **[HMSTHModdingTool](https:/
 
 ---
 
-<img width="884" height="591" alt="image_04" src="https://github.com/user-attachments/assets/fcfade8d-9539-4f94-90bd-f4169fbed753" />
+<img width="875" height="591" alt="image_05" src="https://github.com/user-attachments/assets/a4bc4a6c-fecf-40a1-bd1f-646728ec7660" />
 
 ---
 
